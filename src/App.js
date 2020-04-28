@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import AmplifyComponent from "./components/AmplifyComponent";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SearchMusicComponent from "./components/SearchMusicComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <Router>
+        <Route path="/" exact={true} component={AmplifyComponent} />
+        <Route
+          path="/search/:searchItem"
+          exact={true}
+          component={SearchMusicComponent}
+        />
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+//render={(props) => <AmplifyComponent {...props} />}
