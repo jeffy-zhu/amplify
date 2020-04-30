@@ -1,6 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import SearchMusicComponent from "./SearchMusicComponent";
 
 class AmplifyComponent extends React.Component {
   state = {
@@ -11,8 +9,15 @@ class AmplifyComponent extends React.Component {
     return (
       <div>
         <h1>Welcome to Amplify!</h1>
-        <input className="form-control" />
-        <button onClick={() => this.props.history.push("/ITWORKS")}>
+        <input
+          className="form-control"
+          onChange={(e) => this.setState({ searchItem: e.target.value })}
+        />
+        <button
+          onClick={() =>
+            this.props.history.push(`/search/${this.state.searchItem}`)
+          }
+        >
           Submit
         </button>
       </div>
