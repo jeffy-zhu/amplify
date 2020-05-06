@@ -17,6 +17,7 @@ class AmplifyComponent extends React.Component {
           onClick={() =>
             this.props.history.push(`/search/${this.state.searchItem}`)
           }
+          disabled={!this.state.searchItem}
         >
           Submit
         </button>

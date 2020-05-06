@@ -6,6 +6,7 @@ import SearchMusicComponent from "./components/SearchMusicComponent";
 import { createStore } from "redux";
 import searchMusicReducer from "./reducers/SearchMusicReducer";
 import { Provider } from "react-redux";
+import MusicDetailsComponent from "./components/MusicDetailsComponent";
 
 const store = createStore(searchMusicReducer);
 
@@ -19,6 +20,11 @@ function App() {
             path="/search/:searchItem"
             exact={true}
             component={SearchMusicComponent}
+          />
+          <Route
+            path="/artist/:artistId/:artistName/song/:songId/:songTitle"
+            exact={true}
+            component={MusicDetailsComponent}
           />
         </Router>
       </div>

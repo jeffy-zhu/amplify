@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import SearchMusicService from "../services/SearchMusicService";
+import { Link } from "react-router-dom";
 
 class SearchMusicComponent extends React.Component {
   componentDidMount() {
-    this.props.findMusic("rihanna");
+    const searchItem = this.props.match.params.searchItem;
+    this.props.findMusic(searchItem);
   }
 
   render() {
@@ -14,7 +16,16 @@ class SearchMusicComponent extends React.Component {
         <ul>
           {this.props.songs &&
             this.props.songs.map((song) => {
-              return <li>{song.title}</li>;
+              return (
+                <Link
+                  to={`/artist/${song.artist.id}/${song.artist.name}/song/${song.id}/${song.title}`}
+                >
+                  <li>
+                    <div>{song.title}</div>
+                    <div>{song.artist.name}</div>
+                  </li>
+                </Link>
+              );
             })}
         </ul>
       </div>
