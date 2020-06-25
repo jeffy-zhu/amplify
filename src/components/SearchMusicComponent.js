@@ -35,7 +35,7 @@ class SearchMusicComponent extends React.Component {
 
 const stateToPropertyMapper = (state) => {
   return {
-    songs: state.songs,
+    songs: state.searchMusic.songs,
   };
 };
 

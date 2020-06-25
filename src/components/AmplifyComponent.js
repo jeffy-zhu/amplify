@@ -8,7 +8,7 @@ class AmplifyComponent extends React.Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Amplify!</h1>
+        <h1 className="text-center">Welcome to Amplify!</h1>
         <input
           className="form-control"
           onChange={(e) => this.setState({ searchItem: e.target.value })}

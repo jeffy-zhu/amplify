@@ -3,12 +3,18 @@ import "./App.css";
 import AmplifyComponent from "./components/AmplifyComponent";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SearchMusicComponent from "./components/SearchMusicComponent";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import searchMusicReducer from "./reducers/SearchMusicReducer";
 import { Provider } from "react-redux";
 import MusicDetailsComponent from "./components/MusicDetailsComponent";
+import musicDetailsReducer from "./reducers/MusicDetailsReducer";
 
-const store = createStore(searchMusicReducer);
+const rootReducer = combineReducers({
+  searchMusic: searchMusicReducer,
+  musicDetails: musicDetailsReducer,
+});
+
+const store = createStore(rootReducer);
 
 function App() {
   return (
