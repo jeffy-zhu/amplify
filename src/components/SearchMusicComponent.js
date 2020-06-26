@@ -15,10 +15,13 @@ class SearchMusicComponent extends React.Component {
         <h1>Search Music Component</h1>
         <ul>
           {this.props.songs &&
-            this.props.songs.map((song) => {
+            this.props.songs.map((song, i) => {
               return (
                 <Link
-                  to={`/artist/${song.artist.id}/${song.artist.name}/song/${song.id}/${song.title}`}
+                  to={`/artist/${song.artist.id}/${song.artist.name}/song/${
+                    song.id
+                  }/${encodeURIComponent(song.title)}`}
+                  key={i}
                 >
                   <li>
                     <div>{song.title}</div>
