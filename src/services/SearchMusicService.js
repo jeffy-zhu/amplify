@@ -1,6 +1,6 @@
 export const findMusic = (searchItem) =>
   fetch(
-    `http://www.songsterr.com/a/ra/songs.json?pattern=${searchItem}`
+    `https://www.songsterr.com/a/ra/songs.json?pattern=${searchItem}`
   ).then((response) => response.json());
 
 export default {

@@ -1,10 +1,13 @@
 const musicDetailsReducer = (state = {}, action) => {
-  if (action.type === "FIND_LYRICS") {
-    return {
-      lyrics: action.lyrics,
-    };
+  switch (action.type) {
+    case "FIND_TRACK_INFO":
+      return {
+        lyrics: action.lyrics,
+        trackInfo: action.trackInfo,
+      };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default musicDetailsReducer;

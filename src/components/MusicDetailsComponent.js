@@ -8,11 +8,13 @@ class MusicDetailsComponent extends React.Component {
 
   componentDidMount() {
     const songTitle = this.songTitle.split("/").join("");
-    this.props.findLyrics(this.artist, songTitle);
+    this.props.findTrackInfo(this.artist, songTitle);
   }
 
   render() {
     let lyrics;
+    let trackAlbum;
+    let trackGenre;
     if (
       this.props.songLyrics &&
       this.props.songLyrics.hasOwnProperty("lyrics")
@@ -21,11 +23,29 @@ class MusicDetailsComponent extends React.Component {
     } else {
       lyrics = "no lyrics :(";
     }
+    if (this.props.trackInfo && this.props.trackInfo.track !== null) {
+      let trackInfoObject = {
+        album: this.props.trackInfo.track[0].strAlbum,
+        genre: this.props.trackInfo.track[0].strGenre,
+      };
+      for (const property in trackInfoObject) {
+        if (trackInfoObject[property] === null) {
+          trackInfoObject[property] = "no " + property + " :(";
+        }
+      }
+      trackAlbum = trackInfoObject.album;
+      trackGenre = trackInfoObject.genre;
+    } else {
+      trackAlbum = "no album :(";
+      trackGenre = "no genre :(";
+    }
     return (
       <div>
         <h1>Music Details Component</h1>
         <div>{this.songTitle}</div>
+        <div>{trackAlbum}</div>
         <div>{this.artist}</div>
+        <div>{trackGenre}</div>
         {lyrics}
       </div>
     );
@@ -35,17 +55,20 @@ class MusicDetailsComponent extends React.Component {
 const stateToPropertyMapper = (state) => {
   return {
     songLyrics: state.musicDetails.lyrics,
+    trackInfo: state.musicDetails.trackInfo,
   };
 };
 
 const dispatchToPropertyMapper = (dispatch) => {
   return {
-    findLyrics: (artist, title) =>
-      MusicDetailsService.findLyrics(artist, title).then((lyricsFromServer) =>
-        dispatch({
-          type: "FIND_LYRICS",
-          lyrics: lyricsFromServer,
-        })
+    findTrackInfo: (artist, title) =>
+      MusicDetailsService.findTrackInfo(artist, title).then(
+        ([lyricsFromServer, trackInfoFromServer]) =>
+          dispatch({
+            type: "FIND_TRACK_INFO",
+            lyrics: lyricsFromServer,
+            trackInfo: trackInfoFromServer,
+          })
       ),
   };
 };
