@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/Amplify.css";
+import guitar from "../images/guitar.png";
 
 class AmplifyComponent extends React.Component {
   state = {
@@ -7,10 +9,11 @@ class AmplifyComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 className="text-center">Welcome to Amplify!</h1>
+      <div id="centered">
+        <img id="guitar" src={guitar} />
+        <h1>Welcome to Amplify!</h1>
+        <div id="instructions">Enter the name of an artist or song</div>
         <input
-          className="form-control"
           onChange={(e) => this.setState({ searchItem: e.target.value })}
         />
         <button

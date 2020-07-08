@@ -10,9 +10,14 @@ class SearchMusicComponent extends React.Component {
   }
 
   render() {
+    let numResults;
+    if (this.props.songs) {
+      numResults = this.props.songs.length;
+    }
     return (
       <div>
         <h1>Search Music Component</h1>
+        <div>There are {numResults} search results.</div>
         <ul>
           {this.props.songs &&
             this.props.songs.map((song, i) => {

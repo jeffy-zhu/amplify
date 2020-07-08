@@ -1,0 +1,42 @@
+#centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -375px;
+}
+
+#guitar {
+  float: left;
+  max-width: 25%;
+  position: relative;
+  bottom: 85px;
+  left: 75px;
+  transform: rotate(-10deg);
+}
+
+h1 {
+  color: white;
+}
+
+#instructions {
+  position: relative;
+  bottom: 8px;
+  color: white;
+}
+
+input {
+  border: 2px solid black;
+  border-radius: 5px;
+  position: absolute;
+  width: 247px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  position: relative;
+  left: 250px;
+}
