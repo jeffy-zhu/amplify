@@ -2,11 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import SearchMusicService from "../services/SearchMusicService";
 import { Link } from "react-router-dom";
+import "../styles/SearchMusic.css";
 
 class SearchMusicComponent extends React.Component {
+  searchItem = this.props.match.params.searchItem;
+
   componentDidMount() {
-    const searchItem = this.props.match.params.searchItem;
-    this.props.findMusic(searchItem);
+    this.props.findMusic(this.searchItem);
   }
 
   render() {
@@ -15,27 +17,32 @@ class SearchMusicComponent extends React.Component {
       numResults = this.props.songs.length;
     }
     return (
-      <div>
-        <h1>Search Music Component</h1>
-        <div>There are {numResults} search results.</div>
-        <ul>
-          {this.props.songs &&
-            this.props.songs.map((song, i) => {
-              return (
-                <Link
-                  to={`/artist/${song.artist.id}/${song.artist.name}/song/${
-                    song.id
-                  }/${encodeURIComponent(song.title)}`}
-                  key={i}
-                >
-                  <li>
-                    <div>{song.title}</div>
-                    <div>{song.artist.name}</div>
-                  </li>
-                </Link>
-              );
-            })}
-        </ul>
+      <div className="row mb-3">
+        <div className="col-6 offset-3">
+          <h1>Searching: {this.searchItem}</h1>
+          <div id="num-results">There are {numResults} search results.</div>
+          <ul className="list-group">
+            {this.props.songs &&
+              this.props.songs.map((song, i) => {
+                return (
+                  <Link
+                    className="list-group-item list-group-item-action"
+                    to={`/artist/${song.artist.id}/${song.artist.name}/song/${
+                      song.id
+                    }/${encodeURIComponent(song.title)}`}
+                    key={i}
+                  >
+                    <div>
+                      <span className="bolded">Title:</span> {song.title}
+                    </div>
+                    <div>
+                      <span className="bolded">Artist:</span> {song.artist.name}
+                    </div>
+                  </Link>
+                );
+              })}
+          </ul>
+        </div>
       </div>
     );
   }

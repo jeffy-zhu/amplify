@@ -10,7 +10,7 @@ class AmplifyComponent extends React.Component {
   render() {
     return (
       <div id="centered">
-        <img id="guitar" src={guitar} />
+        <img id="guitar" src={guitar} alt="" />
         <h1>Welcome to Amplify!</h1>
         <div id="instructions">Enter the name of an artist or song</div>
         <input
