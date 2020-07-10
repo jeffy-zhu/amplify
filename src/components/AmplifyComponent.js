@@ -17,12 +17,13 @@ class AmplifyComponent extends React.Component {
           onChange={(e) => this.setState({ searchItem: e.target.value })}
         />
         <button
+          id="search-button"
           onClick={() =>
             this.props.history.push(`/search/${this.state.searchItem}`)
           }
           disabled={!this.state.searchItem}
         >
-          Submit
+          Search
         </button>
       </div>
     );

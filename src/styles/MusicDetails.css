@@ -1,0 +1,54 @@
+#cover-art {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  float: right;
+  max-width: 100%;
+  width: 510px;
+  height: auto;
+  border: 5px solid black;
+  border-radius: 4px;
+}
+
+#no-cover-art-border {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  float: right;
+  max-width: 100%;
+  width: 510px;
+  height: 510px;
+  border: 5px solid black;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#no-cover-art-text {
+  color: white;
+}
+
+#tabs-button {
+  margin-top: 100px;
+  width: 510px;
+  height: 40px;
+}
+
+.card {
+  margin-top: 5px;
+  width: 510px;
+  height: 465px;
+  border: 5px solid black;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.bolded {
+  font-weight: bold;
+}

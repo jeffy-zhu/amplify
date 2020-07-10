@@ -32,7 +32,7 @@ input {
   width: 247px;
 }
 
-button {
+#search-button {
   background-color: white;
   color: black;
   border: 2px solid black;
