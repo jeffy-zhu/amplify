@@ -2,11 +2,11 @@
   color: white;
 }
 
-.list-group-item {
-  border: 2px solid black;
-  border-radius: 5px;
-}
-
 .bolded {
   font-weight: bold;
+}
+
+.list-group-item {
+  border: 3px solid black;
+  border-radius: 4px;
 }

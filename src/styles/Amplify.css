@@ -1,42 +1,48 @@
 #centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -375px;
+  text-align: center;
+}
+
+#guitar-welcome-parent {
+  display: inline-flex;
+  margin-top: 125px;
+  text-align: initial;
 }
 
 #guitar {
-  float: left;
-  max-width: 25%;
-  position: relative;
-  bottom: 85px;
-  left: 75px;
-  transform: rotate(-10deg);
+  width: 240px;
+  transform: rotate(-13deg);
+  margin-left: 10px;
 }
 
-h1 {
-  color: white;
+#welcome {
+  position: relative;
+  top: 70px;
+  right: 75px;
 }
 
 #instructions {
   position: relative;
-  bottom: 8px;
+  top: 62px;
+  right: 75px;
   color: white;
 }
 
-input {
-  border: 2px solid black;
-  border-radius: 5px;
-  position: absolute;
+#search-input {
+  position: relative;
+  top: 65px;
+  right: 75px;
+  border: 3px solid black;
+  border-radius: 4px;
   width: 247px;
 }
 
 #search-button {
+  position: relative;
+  top: 65px;
+  right: 72px;
   background-color: white;
   color: black;
-  border: 2px solid black;
-  border-radius: 5px;
-  position: relative;
-  left: 250px;
+  font-weight: 300;
+  border: 3px solid black;
+  border-radius: 4px;
 }
