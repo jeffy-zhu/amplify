@@ -12,6 +12,7 @@ class MusicDetailsComponent extends React.Component {
     lyricsTabClicked: false,
   };
   artist = this.props.match.params.artistName;
+  songId = this.props.match.params.songId;
   songTitle = decodeURIComponent(this.props.match.params.songTitle);
 
   componentDidMount() {
@@ -41,7 +42,11 @@ class MusicDetailsComponent extends React.Component {
         coverArt: this.props.trackInfo.track[0].strTrackThumb,
       };
       for (const property in trackInfoObject) {
-        if (trackInfoObject[property] === (null || "")) {
+        if (
+          trackInfoObject[property] === null ||
+          trackInfoObject[property] === "" ||
+          trackInfoObject[property] === "..."
+        ) {
           if (property === "coverArt") {
             trackInfoObject[property] = "no cover art available :(";
           } else {
@@ -64,17 +69,26 @@ class MusicDetailsComponent extends React.Component {
         <div className="col-6">
           {trackCoverArt === "no cover art available :(" ? (
             <div id="no-cover-art-border">
-              <p id="no-cover-art-text">no cover art available :(</p>
+              <p id="no-cover-art-text">{trackCoverArt}</p>
             </div>
           ) : (
-            <img id="cover-art" src={trackCoverArt} />
+            <img
+              id="cover-art"
+              src={trackCoverArt}
+              alt={"Cover art for " + this.songTitle}
+            />
           )}
         </div>
-
         <div className="col-3">
-          <button id="tabs-button" className="btn btn-success">
-            <i class="fas fa-guitar"></i> Tabs
-          </button>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`http://www.songsterr.com/a/wa/song?id=${this.songId}`}
+          >
+            <button id="tabs-button" className="btn btn-success">
+              <i className="fas fa-guitar"></i> Tabs
+            </button>
+          </a>
           <div className="card">
             <div className="card-header">
               <ul className="nav nav-tabs card-header-tabs">

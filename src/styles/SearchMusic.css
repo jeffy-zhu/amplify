@@ -1,12 +1,13 @@
 #num-results {
   color: white;
-}
-
-.bolded {
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .list-group-item {
   border: 3px solid black;
   border-radius: 4px;
+}
+
+.bolded {
+  font-weight: bold;
 }
