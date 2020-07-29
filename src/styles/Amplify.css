@@ -9,6 +9,7 @@
 }
 
 #guitar {
+  max-width: 100%;
   width: 240px;
   height: auto;
   transform: rotate(-13deg);
