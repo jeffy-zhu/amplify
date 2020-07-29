@@ -10,6 +10,7 @@
 
 #guitar {
   width: 240px;
+  height: auto;
   transform: rotate(-13deg);
   margin-left: 10px;
 }
