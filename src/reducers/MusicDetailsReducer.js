@@ -1,10 +1,15 @@
 const musicDetailsReducer = (state = {}, action) => {
   switch (action.type) {
-    case "FIND_TRACK_INFO":
+    case 'GET_LYRICS':
       return {
+        ...state,
         lyrics: action.lyrics,
+      }
+    case 'GET_TRACK_INFO':
+      return {
+        ...state,
         trackInfo: action.trackInfo,
-      };
+      }
     default:
       return state;
   }
